@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Gumming_XOR
 {
@@ -25,14 +14,35 @@ namespace Gumming_XOR
             InitializeComponent();
         }
 
+        Cryptography crypt = new Cryptography();
+        Exception ex = new Exception();
+
         private void MsgBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-
+            MsgBox.Text = null;
+            MsgBox.Opacity = 1;
         }
 
         private void KeyBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
+            KeyBox.Text = null;
+            KeyBox.Opacity = 1;
+        }
 
+        private void ExecButt_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int.TryParse(KeyBox.Text, out int Key);
+
+                ResultMsgBox.Text = crypt.Encode(MsgBox.Text, Key);
+                ResultMsgBox.IsEnabled = true;
+                ResultMsgBox.Opacity = 1;
+            }
+            catch
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
