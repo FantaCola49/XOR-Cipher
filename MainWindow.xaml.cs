@@ -19,21 +19,27 @@ namespace Gumming_XOR
 
         private void MsgBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            MsgBox.Text = null;
-            MsgBox.Opacity = 1;
+            if(MsgBox.Opacity != 1)
+            {
+                MsgBox.Text = null;
+                MsgBox.Opacity = 1;
+            }
         }
 
         private void KeyBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            KeyBox.Text = null;
-            KeyBox.Opacity = 1;
+            if (KeyBox.Opacity != 1)
+            {
+                KeyBox.Text = null;
+                KeyBox.Opacity = 1;
+            }
         }
 
         private void ExecButt_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                int.TryParse(KeyBox.Text, out int Key);
+                long.TryParse(KeyBox.Text, out long Key);
 
                 ResultMsgBox.Text = crypt.Encode(MsgBox.Text, Key);
                 ResultMsgBox.IsEnabled = true;
@@ -43,6 +49,14 @@ namespace Gumming_XOR
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void KeyGen_Click(object sender, RoutedEventArgs e)
+        {
+            if (KeyBox.Opacity != 1)
+                KeyBox.Opacity = 1;
+
+            KeyBox.Text = crypt.getRandom().ToString();
         }
     }
 }

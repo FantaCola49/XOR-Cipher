@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Gumming_XOR"
         mc:Ignorable="d"
         Title="XOR Sipher" Height="450" Width="500"
-        MaxWidth="500" MaxHeight="700">
+        MaxWidth="500" MaxHeight="700"
+        MinHeight="450" MinWidth="500">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -21,12 +22,12 @@
         </Grid.RowDefinitions>
 
         <TextBox Grid.ColumnSpan="2" Grid.Row="0" Margin="25" Text="Enter your message here..." Opacity="0.4" Name="MsgBox" GotKeyboardFocus="MsgBox_GotKeyboardFocus"/>
-        <TextBox Grid.Row="1" VerticalAlignment="Top" Margin="10,10,10,0" Text="Enter your key here..." Opacity="0.4" Name="KeyBox" GotKeyboardFocus="KeyBox_GotKeyboardFocus" Height="18"/>
-        <Button Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0" Width="100" Height="25" Name="ExecButt" Content="Encode" Click="ExecButt_Click"/>
+        <TextBox Grid.Row="1" VerticalAlignment="Center" Margin="25 0 0 0" Text="Enter your key here..." Opacity="0.4" Name="KeyBox" GotKeyboardFocus="KeyBox_GotKeyboardFocus" Height="18"/>
+        <Button Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="25 0 0 0" Width="100" Height="25" Name="ExecButt" Content="Encode" Click="ExecButt_Click"/>
         
         <TextBox Grid.ColumnSpan="2" Grid.Row="3" Margin="25" Text="Your cipher will appear here soon ..." Opacity="0.4" Name="ResultMsgBox" IsEnabled="False" IsReadOnly="True"/>
-        
-        
+        <Button Name="KeyGen" Content="Generate Key" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Width="100" Height="25" Margin="0 0 10 0" Click="KeyGen_Click"/>
+
 
     </Grid>
 </Window>

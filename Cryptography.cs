@@ -14,7 +14,7 @@ namespace Gumming_XOR
         /// <param name="msg"></param>
         /// <param name="key"></param>
         /// <returns></returns>
-        public string Encode (string msg, int key)
+        public string Encode (string msg, long key)
         {
             string result = "";
             
@@ -23,6 +23,26 @@ namespace Gumming_XOR
                 result += (char)(msg[i] ^ key);
             }
             return result;
+        }
+
+        Random rand = new Random();
+        private long rnd;
+
+        public Cryptography()
+        {
+            this.rnd = rand.Next(0, 5000);   
+        }
+
+        /// <summary>
+        /// Generate random long using XORShift
+        /// </summary>
+        /// <returns></returns>
+        public long getRandom()
+        {
+            this.rnd ^= (this.rnd << 21);
+            this.rnd ^= (this.rnd >> 39);
+            this.rnd ^= (this.rnd << 4);
+            return this.rnd;
         }
     }
 }
