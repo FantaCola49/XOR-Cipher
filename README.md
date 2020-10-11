@@ -2,7 +2,7 @@
 WPF which will allow you to make XOR cryptography
 
 # Вот так оно работает
-!(https://github.com/FantaCola49/XOR-Cipher/blob/master/Resources/Demo/1.PNG)
+![](https://github.com/FantaCola49/XOR-Cipher/blob/master/Resources/Demo/1.PNG)
 
 ![Ввёл данные](https://github.com/FantaCola49/XOR-Cipher/blob/master/Resources/Demo/2.PNG)
 
