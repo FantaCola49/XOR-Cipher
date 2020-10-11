@@ -6,8 +6,17 @@
         xmlns:local="clr-namespace:Gumming_XOR"
         mc:Ignorable="d"
         Title="XOR Sipher" Height="450" Width="500"
-        MaxWidth="500" MaxHeight="700"
+        MaxWidth="800" MaxHeight="700"
         MinHeight="450" MinWidth="500">
+
+    <Window.Background>
+        <ImageBrush>
+            <ImageBrush.ImageSource>
+                <BitmapImage UriSource="/Resources/Pict/NeonBack.jpg" />
+            </ImageBrush.ImageSource>
+        </ImageBrush>
+    </Window.Background>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -21,15 +30,13 @@
             <RowDefinition Height="240*"/>
         </Grid.RowDefinitions>
 
-        <TextBox Grid.ColumnSpan="2" Grid.Row="0" Margin="25" Text="Enter your message here..." Opacity="0.4" Name="MsgBox" GotKeyboardFocus="MsgBox_GotKeyboardFocus"/>
-        <TextBox Grid.Row="1" VerticalAlignment="Center" Margin="25 0 0 0" Text="Enter your key here..." Opacity="0.4" Name="KeyBox" GotKeyboardFocus="KeyBox_GotKeyboardFocus" Height="18"/>
+        <TextBox Grid.ColumnSpan="2" Margin="25" Text="Enter your message here..." Name="MsgBox" GotKeyboardFocus="MsgBox_GotKeyboardFocus" Style="{StaticResource MyTextBox}"/>
+        <TextBox Grid.Row="1" Margin="25 0 0 0" Text="Enter your key here..." Name="KeyBox" Style="{StaticResource MyTextBox}"/>
+        <TextBox Grid.ColumnSpan="2" Grid.Row="3" Text="Your cipher will appear here soon ..." Name="ResultMsgBox" Style="{StaticResource ResultMsg_Style}"/>
+
         <Button Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="25 0 0 0" Width="100" Height="30" Name="ExecButt" Content="Encode" Click="ExecButt_Click" 
                 Template="{StaticResource Button_Template}"/>
-        
-        <TextBox Grid.ColumnSpan="2" Grid.Row="3" Margin="25" Text="Your cipher will appear here soon ..." Opacity="0.4" Name="ResultMsgBox" IsEnabled="False" IsReadOnly="True"/>
-        <Button Name="KeyGen" Content="Generate Key" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Width="100" Height="30" Margin="0 0 10 0" Click="KeyGen_Click"
+        <Button Name="KeyGen" Content="Generate Key" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Width="100" Height="30" Click="KeyGen_Click"
                 Template="{StaticResource Button_Template}"/>
-
-
     </Grid>
 </Window>

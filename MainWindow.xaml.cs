@@ -25,16 +25,6 @@ namespace Gumming_XOR
                 MsgBox.Opacity = 1;
             }
         }
-
-        private void KeyBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-            if (KeyBox.Opacity != 1)
-            {
-                KeyBox.Text = null;
-                KeyBox.Opacity = 1;
-            }
-        }
-
         private void ExecButt_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -53,9 +43,6 @@ namespace Gumming_XOR
 
         private void KeyGen_Click(object sender, RoutedEventArgs e)
         {
-            if (KeyBox.Opacity != 1)
-                KeyBox.Opacity = 1;
-
             KeyBox.Text = crypt.getRandom().ToString();
         }
     }

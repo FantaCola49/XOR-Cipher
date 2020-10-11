@@ -16,8 +16,7 @@
             <ContentPresenter RecognizesAccessKey="True" Margin="{TemplateBinding Padding}"
                               VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
         </Border>
-        
-        
+               
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter TargetName="myBorder" Property="Background">
@@ -43,7 +42,7 @@
 
                 <Setter TargetName="myBorder" Property="Cursor" Value="Hand"></Setter>
             </Trigger>
-            
+                      
             <Trigger Property="IsEnabled" Value="False">
                 <Setter TargetName="myBorder" Property="Background">
                     <Setter.Value>
@@ -58,4 +57,93 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
+    <Style TargetType="TextBox" x:Key="MyTextBox">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="#1FFF"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Padding" Value="4"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid x:Name="root" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" SnapsToDevicePixels="True">
+                        <Border x:Name="Background" BorderThickness="0 0 0 3" CornerRadius="3" Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"/>
+
+                        <ScrollViewer x:Name="PART_ContentHost"
+                                      Padding="{TemplateBinding Padding}"
+                                      BorderThickness="0"
+                                      IsTabStop="False"
+                                      Background="{x:Null}"
+                                      TextElement.Foreground="{TemplateBinding Foreground}"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="Background" Value="#FFE3F2FD"/>
+                            <Setter Property="BorderBrush" Value="#64B5F6"/>
+                            <Setter Property="BorderThickness" Value="2"/>
+                            <Setter Property="Opacity" Value="0.99"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="False">
+                            <Setter Property="Background" Value="#1FFF"/>
+                            <Setter Property="Opacity" Value="0.4"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </Trigger>
+                        <Trigger Property="IsReadOnly" Value="True">
+                            <Setter Property="Foreground" Value="#606060"/>
+                            <Setter Property="Background" Value="#1FFF"/>
+                            <Setter Property="BorderBrush" Value="#9E9E9E"/>
+                        </Trigger>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter Property="Background" Value="#FFEBEE"/>
+                            <Setter Property="BorderBrush" Value="#F44336"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="TextBox" x:Key="ResultMsg_Style">
+        <Setter Property="Margin" Value="25"/>
+        <Setter Property="Opacity" Value="0.4"/>
+        <Setter Property="Background" Value="#1FFF"/>
+        <Setter Property="IsEnabled" Value="False"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid x:Name="root" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" SnapsToDevicePixels="True">
+                        <Border x:Name="Background" BorderThickness="0 0 0 3" CornerRadius="3" Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"/>
+
+                        <ScrollViewer x:Name="PART_ContentHost"
+                                      Padding="{TemplateBinding Padding}"
+                                      BorderThickness="0"
+                                      IsTabStop="False"
+                                      Background="{x:Null}"
+                                      TextElement.Foreground="{TemplateBinding Foreground}"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter Property="Background" Value="#FFEBEE"/>
+                            <Setter Property="BorderBrush" Value="#F44336"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
 </ResourceDictionary>
